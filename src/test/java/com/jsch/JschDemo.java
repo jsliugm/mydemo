@@ -28,7 +28,7 @@ public class JschDemo {
         Map<String, String> sftpDetails = new HashMap<String, String>();
         // 设置主机ip，端口，用户名，密码
         sftpDetails.put(SFTPConstants.SFTP_REQ_HOST, "192.168.61.128");
-        sftpDetails.put(SFTPConstants.SFTP_REQ_USERNAME, "cpicapp");
+        sftpDetails.put(SFTPConstants.SFTP_REQ_USERNAME, "xxxapp");
         sftpDetails.put(SFTPConstants.SFTP_REQ_PASSWORD, "linux");
         sftpDetails.put(SFTPConstants.SFTP_REQ_PORT, "22");
         sftpChannel = new SFTPChannel();
@@ -43,7 +43,7 @@ public class JschDemo {
     @Test
     public void test() throws Exception {
 
-        channelSftp.cd("/home/cpicapp");
+        channelSftp.cd("/home/xxxapp");
         //chSftp.mkdir("test0910");
         //System.out.println(chSftp.lpwd());
         Vector<ChannelSftp.LsEntry> vector = channelSftp.ls(channelSftp.pwd());
@@ -102,11 +102,11 @@ public class JschDemo {
     }
     @Test
     public void testMkdir() throws SftpException {
-        String path = "/home/cpicapp/abc/0910";
+        String path = "/home/xxxapp/abc/0910";
     }
     @Test
     public void testLs() throws SftpException {
-        String path = "/home/cpicapp/test0910/success.txt";
+        String path = "/home/xxxapp/test0910/success.txt";
         boolean result = checkExists(channelSftp,path);
         System.out.println(result);
         if(result){

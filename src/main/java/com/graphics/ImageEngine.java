@@ -1,3 +1,4 @@
+/* 改成jdk1.8 后报错，所以暂时注释掉
 package com.graphics;
 
 import com.sun.image.codec.jpeg.JPEGCodec;
@@ -41,13 +42,15 @@ public class ImageEngine {
         drawRightArrow(graphics, x, y);
     }
 
-    /**
+    */
+/**
      * 绘制向右箭头
      *
      * @param graphics
      * @param x
      * @param y
-     */
+     *//*
+
     public void drawRightArrow(Graphics graphics, int x, int y) {
         // 绘制由 x 和 y 坐标数组定义的一系列连接线。
         graphics.drawPolyline(new int[]{x, x - 2, x - 2, x - 10, x - 10,
@@ -59,13 +62,15 @@ public class ImageEngine {
                 y + 2, y + 4, y}, 8);
     }
 
-    /**
+    */
+/**
      * 绘制向下箭头
      *
      * @param graphics
      * @param x
      * @param y
-     */
+     *//*
+
     public void drawDownArrow(Graphics graphics, int x, int y) {
         // 绘制由 x 和 y 坐标数组定义的一系列连接线。
         graphics.drawPolyline(new int[]{x, x + 4, x + 2, x + 2, x - 2, x - 2,
@@ -77,13 +82,15 @@ public class ImageEngine {
                 y - 4, y}, 8);
     }
 
-    /**
+    */
+/**
      * 绘制向上箭头
      *
      * @param graphics
      * @param x
      * @param y
-     */
+     *//*
+
     public void drawUpArrow(Graphics graphics, int x, int y) {
         // 绘制由 x 和 y 坐标数组定义的一系列连接线。
         graphics.drawPolyline(new int[]{x, x - 4, x - 2, x - 2, x + 2, x + 2,
@@ -95,7 +102,8 @@ public class ImageEngine {
                 y + 4, y}, 8);
     }
 
-    /**
+    */
+/**
      * 绘制表格横线
      *
      * @param x1
@@ -104,7 +112,8 @@ public class ImageEngine {
      * @param y2
      * @param rowHeightArray
      * @param graphics
-     */
+     *//*
+
     public void drawX(int x1, int y1, int x2, int y2, int[] rowHeightArray, Graphics graphics) {
         graphics.drawLine(x1, y1, x2, y2);
         for (int i = 0; i < rowHeightArray.length; i++) {
@@ -113,7 +122,8 @@ public class ImageEngine {
         }
     }
 
-    /**
+    */
+/**
      * 绘制表格竖线
      *
      * @param x1
@@ -122,7 +132,8 @@ public class ImageEngine {
      * @param y2
      * @param columnWidthArray
      * @param graphics
-     */
+     *//*
+
     public void drawY(int x1, int y1, int x2, int y2, int[] columnWidthArray, Graphics graphics) {
         graphics.drawLine(x1, y1, x2, y2);
         for (int i = 0; i < columnWidthArray.length; i++) {
@@ -284,4 +295,4 @@ public class ImageEngine {
         }
     }
 
-}
+}*/
