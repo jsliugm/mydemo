@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Person">
+
+	<!-- Use type aliases to avoid typing the full classname every time. -->
+	<typeAlias alias="Person" type="com.ibatis.Person" />
+
+	<!-- Result maps describe the mapping between the columns returned from 
+		a query, and the class properties. A result map isn't necessary if the columns 
+		(or aliases) match to the properties exactly. -->
+	<resultMap id="PersonResult" class="Person">
+		<result property="id" column="id" />
+		<result property="name" column="name" />
+		<result property="pid" column="pid" />
+		<result property="birthday" column="birthday" />
+	</resultMap>
+	<!-- Select with no parameters using the result map for Account class. -->
+	<select id="selectAllPerson" resultMap="PersonResult">
+		select * from Person
+	</select>
+
+</sqlMap>
