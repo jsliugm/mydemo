@@ -11530,3 +11530,60 @@
 [Shutdown Hook] INFO org.logicalcobwebs.proxool.timalias - 'timalias' pool has been closed down by Shutdown Hook in 9 milliseconds.
 [Shutdown Hook] INFO org.logicalcobwebs.proxool.PrototyperController - Stopping Prototyper thread
 [Shutdown Hook] INFO org.logicalcobwebs.proxool.HouseKeeperController - Stopping HouseKeeper thread
+[main] INFO com.thread.AsyncDemo - StopWatch '': running time (millis) = 2008
+-----------------------------------------
+ms     %     Task name
+-----------------------------------------
+00007  000%  蒸饭
+00000  000%  买菜
+01003  050%  蒸饭print
+00998  050%  买菜print
+
+[main] INFO com.thread.AsyncDemo - StopWatch '': running time (millis) = 2008
+-----------------------------------------
+ms     %     Task name
+-----------------------------------------
+02008  100%  start....
+
+[main] INFO com.thread.AsyncDemo - StopWatch '': running time (millis) = 2011
+-----------------------------------------
+ms     %     Task name
+-----------------------------------------
+02011  100%  start....
+
+[main] INFO com.thread.AsyncDemo - StopWatch '': running time (millis) = 2006
+-----------------------------------------
+ms     %     Task name
+-----------------------------------------
+02006  100%  start....
+
+[main] INFO com.thread.AsyncDemo - StopWatch '': running time (millis) = 3505
+-----------------------------------------
+ms     %     Task name
+-----------------------------------------
+03505  100%  start....
+
+[main] INFO com.thread.AsyncDemo - StopWatch '': running time (millis) = 2505
+-----------------------------------------
+ms     %     Task name
+-----------------------------------------
+02505  100%  start....
+
+[main] INFO com.thread.AsyncDemo - StopWatch '': running time (millis) = 2004
+-----------------------------------------
+ms     %     Task name
+-----------------------------------------
+02004  100%  start....
+
+[main] INFO com.thread.AsyncDemo - StopWatch '': running time (millis) = 2006
+-----------------------------------------
+ms     %     Task name
+-----------------------------------------
+02006  100%  start....
+
+[main] INFO com.thread.AsyncDemo - StopWatch '': running time (millis) = 2017
+-----------------------------------------
+ms     %     Task name
+-----------------------------------------
+02017  100%  start....
+
