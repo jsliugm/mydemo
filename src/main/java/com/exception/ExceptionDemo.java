@@ -1,5 +1,8 @@
 package com.exception;
 
+import java.io.PrintWriter;
+import java.io.StringWriter;
+
 public class ExceptionDemo {
 	private static int exTest1() {
 
@@ -25,9 +28,20 @@ public class ExceptionDemo {
 		}
 		return i;
 	}
-
+   	public static void test(){
+		int i =0;
+		int j=1;
+		i=j/i;
+	}
 	public static void main(String[] args) {
-		System.out.println(exTest1());
-		System.out.println(exTest2());
+		StringWriter stringWriter = new StringWriter();
+		PrintWriter printWriter = new PrintWriter(stringWriter);
+		try {
+			test();
+		} catch (Exception e) {
+			e.printStackTrace(printWriter);
+		}
+		System.out.println(stringWriter.toString());
+
 	}
 }

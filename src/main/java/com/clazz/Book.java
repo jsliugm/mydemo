@@ -3,7 +3,7 @@ package com.clazz;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Book {
+final public class Book {
 	protected Book(){}
 	private static List<String> names = new ArrayList<String>();
 

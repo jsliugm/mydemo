@@ -32,4 +32,11 @@ public class ListDemo {
         list3.stream().flatMap(ss -> ss.stream()).forEach(s-> System.out.println(s));
     }
 
+    @Test
+    public void test2() {
+        List<String> list1 = Lists.newArrayList("ab","cd");
+
+    }
+
+
 }

@@ -1,16 +1,21 @@
 package com.clazz;
 
+import lombok.Data;
+
 /**
  * Created by Administrator on 2017/8/18.
  */
+@Data
 public class Child extends Parent {
     private String name;
 
-    public String getName() {
-        return name;
+    public Child() {
+        System.out.println("child constructor");
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
+/*    @Override
+    public void print(){
+        System.out.println(this.name);
+        super.print();
+    }*/
 }
