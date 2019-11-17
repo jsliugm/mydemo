@@ -1,6 +1,5 @@
 package com.clazz;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
 
 /**

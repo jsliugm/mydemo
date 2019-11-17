@@ -144,5 +144,10 @@ public class StringTest {
         } catch (UnsupportedEncodingException e) {
         }
     }
+    @Test
+    public void subStringTest(){
+        String aaa = "1234567";
+        System.out.println(aaa.substring(3));
+    }
 
 }

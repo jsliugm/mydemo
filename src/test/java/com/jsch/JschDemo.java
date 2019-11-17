@@ -5,7 +5,7 @@ import com.jcraft.jsch.JSchException;
 import com.jcraft.jsch.SftpException;
 import com.sftp.SFTPChannel;
 import com.sftp.SFTPConstants;
-import org.apache.log4j.Logger;
+import lombok.extern.slf4j.Slf4j;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -18,8 +18,8 @@ import java.util.Vector;
 /**
  * Created by dell on 2017/9/10.
  */
+@Slf4j
 public class JschDemo {
-    private final static Logger logger = Logger.getLogger(JschDemo.class);
     SFTPChannel sftpChannel;
     ChannelSftp channelSftp;
 
@@ -36,7 +36,7 @@ public class JschDemo {
             channelSftp = sftpChannel.getChannel(sftpDetails, 60000);
         } catch (JSchException e) {
             e.printStackTrace();
-            logger.error(e);
+            log.error("",e);
         }
     }
 
@@ -93,10 +93,10 @@ public class JschDemo {
                 return true;
             }
         } catch (SftpException e) {
-            logger.error(e);
+            log.error("",e);
             e.printStackTrace();
         }catch (Throwable e){
-            logger.error(e);
+            log.error("",e);
         }
         return false;
     }

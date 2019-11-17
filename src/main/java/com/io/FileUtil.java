@@ -8,6 +8,29 @@ import java.util.regex.Pattern;
 
 
 public class FileUtil {
+    public static void bytes2File(byte[] bytes, String path) {
+        try (FileOutputStream fos = new FileOutputStream(path);BufferedOutputStream bos = new BufferedOutputStream(fos);) {
+            bos.write(bytes);
+            bos.flush();
+        }  catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    public static <T> T file2Object(String path){
+        try(FileInputStream fis = new FileInputStream(path);ObjectInputStream objectInputStream = new ObjectInputStream(fis)) {
+            return  (T)objectInputStream.readObject();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
     static void close(Closeable c) {
         if (c != null) {
             try {
@@ -59,6 +82,7 @@ public class FileUtil {
             //System.out.println(input);
         }
     }
+
     @Test
     public void test() {
         File f = new File("c:\\tezts\\xx.txt");

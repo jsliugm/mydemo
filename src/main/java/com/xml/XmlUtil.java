@@ -30,7 +30,7 @@ public class XmlUtil {
 
         while (true) {
             new Thread(new Runnable() {
-
+                @Override
                 public void run() {
                     XmlUtil xu = new XmlUtil();
                     xu.setXmlUtil(xu);
@@ -61,15 +61,16 @@ public class XmlUtil {
         SAXParser parser = spf.newSAXParser();
         parser.parse(file, new MySaxHandler());
     }
+
     @Test
-     public void testDom4j() throws DocumentException {
+    public void testDom4j() throws DocumentException {
         // 创建saxreader对象
         SAXReader reader = new SAXReader();
         // 读取一个文件，把这个文件转换成Document对象
         org.dom4j.Document document = reader.read(new File("C:\\Users\\jsliu\\Desktop\\test.xml"));
         // 获取根元素
         org.dom4j.Element root = document.getRootElement();
-        
+
 
     }
 }

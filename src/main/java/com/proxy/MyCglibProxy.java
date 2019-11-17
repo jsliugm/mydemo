@@ -1,13 +1,13 @@
 package com.proxy;
 
 import java.lang.reflect.Method;
-import org.apache.log4j.Logger;
+
+import lombok.extern.slf4j.Slf4j;
 import net.sf.cglib.proxy.Enhancer;
 import net.sf.cglib.proxy.MethodInterceptor;
 import net.sf.cglib.proxy.MethodProxy;
-
+@Slf4j
 public class MyCglibProxy implements MethodInterceptor {
-	private static Logger log = Logger.getLogger(MyCglibProxy.class);
 	private Object target;
 
 	public Object getInstance(Object target) {
@@ -17,14 +17,14 @@ public class MyCglibProxy implements MethodInterceptor {
 		enhancer.setCallback(this);
 		return enhancer.create();
 	}
-
+	@Override
 	public Object intercept(Object arg0, Method arg1, Object[] arg2,
 			MethodProxy arg3) throws Throwable {
 		System.out.println("开始");
 		try {
 			arg3.invokeSuper(arg0, arg2);
 		} catch (Exception e) {
-			log.info(e);
+			log.error("",e);
 		}
 	
 		System.out.println("结束");
