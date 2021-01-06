@@ -5,6 +5,8 @@ import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 public class ListDemo {
 
@@ -35,8 +37,13 @@ public class ListDemo {
     @Test
     public void test2() {
         List<String> list1 = Lists.newArrayList("ab","cd");
-
     }
 
+    @Test
+    public void test3(){
+        List<String> list = Lists.newArrayList("1","1");
+        Set<String> set = list.stream().collect(Collectors.toSet());
+        System.out.println(set);
+    }
 
 }

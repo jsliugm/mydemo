@@ -8,6 +8,7 @@ import org.junit.Test;
 import java.io.UnsupportedEncodingException;
 import java.math.BigDecimal;
 import java.util.List;
+import java.util.StringJoiner;
 import java.util.UUID;
 
 /**
@@ -144,10 +145,45 @@ public class StringTest {
         } catch (UnsupportedEncodingException e) {
         }
     }
+
     @Test
-    public void subStringTest(){
+    public void subStringTest() {
         String aaa = "1234567";
+
         System.out.println(aaa.substring(3));
+
+        System.out.println(aaa.substring(0, aaa.indexOf("3")));
+
+        System.out.println(aaa.substring(aaa.indexOf("3")));
+    }
+
+    @Test
+    public void refrenceTest() {
+        String aa = "aaaaaa";
+
+        println(aa);
+        System.out.println(aa.hashCode());
+    }
+    @Test
+    public void testJoin(){
+        StringJoiner sj = new StringJoiner(" && ");
+        sj.add("xxx");
+        System.out.println(sj.length());
+        System.out.println(sj.toString());
+    }
+
+    private void println(String aa) {
+        System.out.println(aa.hashCode());
+    }
+    @Test
+    public void test17(){
+        System.out.printf("[%d]\n",123);
+        System.out.printf("[%4d]\n",123);
+        System.out.printf("[%-4d]\n",123);
+        System.out.printf("[%04d]\n",123);
+        System.out.printf("[%d]\n",123);
+
+
     }
 
 }
