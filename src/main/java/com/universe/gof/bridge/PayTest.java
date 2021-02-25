@@ -28,6 +28,10 @@ public class PayTest {
     /**
      * 解耦支付渠道、支付方式，支付渠道不需要耦合具体的支付方式     单一职责、开闭原则
      *
+     * <p>从桥接模式的实现形式来看满足了单一职责和开闭原则，让每一部分内容都很清晰易于维护和拓展。
+     * 但如果我们是实现高内聚的代码，那么就会很复杂。
+     * 所以在选择重构代码的时候，需要考虑好整体的设计，否则选不到合理的设计模式，将会让代码变得难以开发。</p>
+     *
      * <p>如果有新的支付方式，只需新增支付方式实现类</p>
      * <p>如果有新的支付渠道，只需新增的支付渠道实现类</p>
      *
@@ -103,9 +107,10 @@ abstract class Pay {
 
     /**
      * 交易
-     * @param uId 用户id
+     *
+     * @param uId     用户id
      * @param tradeId 交易id
-     * @param amount 交易金额
+     * @param amount  交易金额
      * @return java.lang.String
      * @author universe
      * @createDate 2021/1/6 16:26

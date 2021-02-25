@@ -7,6 +7,7 @@ import org.junit.Test;
 
 import java.io.UnsupportedEncodingException;
 import java.math.BigDecimal;
+import java.text.MessageFormat;
 import java.util.List;
 import java.util.StringJoiner;
 import java.util.UUID;
@@ -182,8 +183,21 @@ public class StringTest {
         System.out.printf("[%-4d]\n",123);
         System.out.printf("[%04d]\n",123);
         System.out.printf("[%d]\n",123);
-
-
     }
+    @Test
+    public void test18(){
+        String jj = "";
+        if(jj instanceof String) {
+            System.out.println("yyyyyyyyes");
+        }
+    }
+    @Test
+    public void test19(){
+        String pattern = "{return '%s' }()" ;
+        String nullPattern = "{return null }()" ;
+        System.out.println(nullPattern);
+        System.out.println(String.format(pattern,"1"));
+    }
+
 
 }
