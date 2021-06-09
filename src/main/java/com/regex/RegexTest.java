@@ -34,4 +34,12 @@ public class RegexTest {
 		if(m.find()){System.out.println(m.group());}
 	}
 
+	@Test
+	public void test3(){
+		String pattern = "^[1-9]\\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])\\s+(20|21|22|23|[0-1]\\d):[0-5]\\d:[0-5]\\d$";
+		Pattern p = Pattern.compile(pattern);
+		System.out.println(p.matcher("2020-2-29 02:02:02").find());
+
+	}
+
 }

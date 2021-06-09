@@ -99,9 +99,12 @@ public class CpuTest {
 
 
     @Test
-    public void test6(){
+    public void test6() throws InterruptedException {
+       // int[] tt = new int[1024];
         while(true) {
-            FileUtil.File2String("e:\\oo.txt");
+            int[] tt = new int[1024];
+            Thread.sleep(100);
+            System.out.println("...");
         }
     }
 }

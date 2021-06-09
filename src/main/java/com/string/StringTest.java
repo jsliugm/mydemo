@@ -1,6 +1,7 @@
 package com.string;
 
 import com.google.common.collect.Lists;
+import com.google.common.collect.Maps;
 import com.swing.CodeDialog;
 import org.apache.commons.lang.StringUtils;
 import org.junit.Test;
@@ -9,8 +10,10 @@ import java.io.UnsupportedEncodingException;
 import java.math.BigDecimal;
 import java.text.MessageFormat;
 import java.util.List;
+import java.util.Map;
 import java.util.StringJoiner;
 import java.util.UUID;
+import java.util.regex.Pattern;
 
 /**
  * @program: MyDemo
@@ -198,6 +201,25 @@ public class StringTest {
         System.out.println(nullPattern);
         System.out.println(String.format(pattern,"1"));
     }
+    @Test
+    public void test202(){
+        Pattern pattern = Pattern.compile("^.*\\[交\\b.*$");
+        String target = "[交]信息";
+        System.out.println(pattern.matcher(target).matches());
+    }
+    static Map<String,String> map = Maps.newHashMap();
+    @Test
+    public void test210(){
+        map.put("1","1");
+        Map<String,String> map = Maps.newHashMap();
+        List<String> list = Lists.newArrayList("1","2");
+        list.forEach(
+                it->{
+                    map.put(it,it);
+                }
+        );
 
-
+        System.out.println(StringTest.map);
+        System.out.println(map);
+    }
 }

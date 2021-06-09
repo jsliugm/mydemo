@@ -8,26 +8,30 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class VolatileDemo {
     static int share = 10;
-    static volatile boolean flag = true;
+    static boolean flag = true;
+    //volatile static Value value = new Value(true);
 
     public static void main(String[] args) {
+        Value value = new Value(true);
         //reader
         new Thread(() -> {
-            while (flag) {
-                // System.out.println(share);
+            while (value.isValue()) {
+                // System.out.println(flag);
+                System.out.println("111111");
+                value.isValue();
             }
         }).start();
         //writer
         new Thread(() -> {
             try {
                 Thread.sleep(100L);
-                flag = false;
-                System.out.println(false);
+                //flag = false;
+                value.setValue(false);
+                System.out.println(value.isValue());
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
         }).start();
     }
-
 }
 
