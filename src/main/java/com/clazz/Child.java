@@ -13,9 +13,12 @@ public class Child extends Parent {
         System.out.println("child constructor");
     }
 
-/*    @Override
-    public void print(){
-        System.out.println(this.name);
-        super.print();
-    }*/
+    /*    @Override
+        public void print(){
+            System.out.println(this.name);
+            super.print();
+        }*/
+    public static void main(String[] args) {
+        System.out.println(Child.class.isAssignableFrom(Parent.class));
+    }
 }

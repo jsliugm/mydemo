@@ -1,31 +1,27 @@
 package com.guava;
 
+import com.alibaba.ttl.threadpool.TtlExecutors;
 import com.google.common.collect.Lists;
 import com.google.common.util.concurrent.*;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang.StringUtils;
 
 import java.util.List;
 import java.util.concurrent.*;
-import java.util.function.Supplier;
 
 @Slf4j
 public class ThreadPoolDemo {
     private static ThreadFactory namedThreadFactory = new ThreadFactoryBuilder().setNameFormat("thread-rule-compiler-%d").build();
-    private static ExecutorService taskExe = new ThreadPoolExecutor(10, 20, 200L, TimeUnit.MILLISECONDS, new LinkedBlockingQueue<Runnable>(), namedThreadFactory);
+    private static ExecutorService taskExe = TtlExecutors.getTtlExecutorService(new ThreadPoolExecutor(40, 50, 200L, TimeUnit.MILLISECONDS, new LinkedBlockingQueue<Runnable>(), namedThreadFactory));
     private static ListeningExecutorService pool = MoreExecutors.listeningDecorator(taskExe);
 
-    public void test(Callable callable){
-        List<ListenableFuture<Integer>> futureList = Lists.newArrayList();
-    }
-
-    public static void main(String[] args) throws InterruptedException {
-//        CountDownLatch countDownLatch = new CountDownLatch(100);
-        List<ListenableFuture<Integer>> futureList = Lists.newArrayList();
-        for (int i = 0; i < 100; i++) {
-            int finalI = i;
-            final ListenableFuture<Integer> future = pool.submit(() -> {
-                Thread.sleep(1000 * 2);
-                return finalI + 1000;
+    static void test() {
+        // inheritableThreadLocal.set(1);
+        List<ListenableFuture<Object>> futureList = Lists.newArrayList();
+        for (int i = 0; i < 2; i++) {
+            final ListenableFuture<Object> future = pool.submit(() -> {
+                Thread.sleep(100);
+                return RuleContext.get();
             });
 
 //            future.addListener(new Runnable() {
@@ -42,17 +38,18 @@ public class ThreadPoolDemo {
 //                }
 //            }, MoreExecutors.sameThreadExecutor());
 
-            Futures.addCallback(future, new FutureCallback<Integer>() {
+            Futures.addCallback(future, new FutureCallback<Object>() {
                 @Override
-                public void onSuccess(Integer result) {
+                public void onSuccess(Object result) {
                     //System.out.println(result);
-                    log.info("{}", result);
+                    //log.info("{}", result);
 //                    countDownLatch.countDown();
                 }
 
                 @Override
                 public void onFailure(Throwable t) {
-                    t.printStackTrace();
+                    throw new RuntimeException(t);
+                    // t.printStackTrace();
 //                    countDownLatch.countDown();
                 }
             });
@@ -60,13 +57,24 @@ public class ThreadPoolDemo {
         }
 //        countDownLatch.await(3,TimeUnit.SECONDS);
         try {
-            List<Integer> list = Futures.successfulAsList(futureList).get();
-            log.info("{}", list);
-        } catch (ExecutionException e) {
+            List<Object> list = Futures.successfulAsList(futureList).get();
+            if(!StringUtils.equals(list.get(0).toString(),list.get(1).toString())) {
+                log.info("{}",list);
+            }
+        } catch (ExecutionException | InterruptedException e) {
             e.printStackTrace();
-        } finally {
-            pool.shutdown();
         }
-        log.info("over!!!!!!!");
+        //log.info("over!!!!!!!");
+    }
+
+    public static void main(String[] args) {
+        for (int i = 0; i < 2; i++) {
+            new Thread(() -> {
+                while (true) {
+                    RuleContext.set(Thread.currentThread().getName());
+                    test();
+                }
+            }).start();
+        }
     }
 }

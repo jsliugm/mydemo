@@ -9,7 +9,7 @@
     <jmxConfigurator />
     <!-- 定义日志文件 输出位置 -->
     <!-- <property name="log_dir" value="C:/test" />-->
-    <property name="log_dir" value="/home/hadmin/data/logs/src" />
+    <property name="log_dir" value="/applog/mydemo" />
     <!-- 日志最大的历史 30天 -->
     <property name="maxHistory" value="30" />
 
@@ -131,7 +131,7 @@
         <appender-ref ref="console" />
         <!-- 文件输出 -->
         <!--<appender-ref ref="ERROR" />-->
-        <!--<appender-ref ref="INFO" />-->
+        <appender-ref ref="INFO" />
         <!--<appender-ref ref="WARN" />-->
         <!--<appender-ref ref="DEBUG" />-->
         <!--<appender-ref ref="TRACE" />-->
