@@ -20,7 +20,7 @@ public class JvmTest {
         MyObject obj = new MyObject();
         ReferenceQueue<MyObject> softQueue = new ReferenceQueue<MyObject>();
         SoftReference<MyObject> softRef = new SoftReference<MyObject>(obj, softQueue);
-        new CheckRefQueue(softQueue).start();
+        new Thread(new CheckRefQueue(softQueue)).start();
         obj = null;
         System.gc();
         System.out.println("After GC:Soft Get= " + softRef.get());
@@ -42,14 +42,15 @@ public class JvmTest {
         }
     }
 
-    private static class CheckRefQueue {
+    private static class CheckRefQueue implements Runnable {
         private ReferenceQueue<MyObject> softQueue;
 
         public CheckRefQueue(ReferenceQueue<MyObject> softQueue) {
             this.softQueue = softQueue;
         }
 
-        public void start() {
+        @Override
+        public void run() {
             Reference<MyObject> obj = null;
             try {
                 obj = (Reference<MyObject>) softQueue.remove();

@@ -16,13 +16,13 @@ public class RegexDemo {
 		//System.out.println(matcher.);
 		System.out.println(matcher.group(1));*/
 		
-		String numStr = "www4";
-		String numFormat = "^[\\d\\w]{3}4$";
+		String numStr = "()中国";
+		String numFormat = "[\\[\\]\\u4e00-\\u9fa5_a-zA-Z][\\[\\]\\u4e00-\\u9fa5_a-zA-Z0-9]*";
 		Pattern pattern = Pattern.compile(numFormat);
 		Matcher matcher = pattern.matcher(numStr);
-		boolean b = matcher.find();
+		boolean b = matcher.matches();
 		System.out.println(b);
-		System.out.println(matcher.group());
+		//System.out.println(matcher.group());
 		
 	}
 }

@@ -1,15 +1,15 @@
 package com.jdk8;
 
 import com.google.common.collect.Lists;
+import com.jdk8.stream.Person;
 import org.junit.Test;
 
 import java.nio.charset.StandardCharsets;
 import java.time.*;
-import java.util.Arrays;
-import java.util.Base64;
-import java.util.List;
+import java.util.*;
 import java.util.concurrent.ThreadLocalRandom;
 import java.util.function.Supplier;
+import java.util.stream.Collectors;
 
 /**
  * 
@@ -219,6 +219,26 @@ public class JDK8_features {
         //-XX:MinMetaspaceFreeRatio在GC之后，最小的Metaspace剩余空间容量的百分比，减少为分配空间所导致的垃圾收集
         //-XX:MaxMetaspaceFreeRatio在GC之后，最大的Metaspace剩余空间容量的百分比，减少为释放空间所导致的垃圾收集
     }
+    @Test
+    public void testStreamToSet(){
+        List<String> list = new ArrayList<>();
+        list.add("1");
+        list.add("1");
+        list.add("2");
+        Set<String> set = list.stream().collect(Collectors.toSet());
+        System.out.println(set);
+    }
+    @Test
+    public void testStreamToMap(){
+        List<Person> list = new ArrayList<>();
+        list.add(new Person("zhangsan","sh",11));
+        list.add(new Person("lisi","sh",11));
+        list.add(new Person("wangwu","js",11));
+
+        list.stream().collect(Collectors.toMap(Person::getAddress,Person::getName,(o,n)-> n));
+
+    }
+
     
 }
 
