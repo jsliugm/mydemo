@@ -1,0 +1,16 @@
+@startuml
+'聚合关系 Aggregation
+'表示整体由部门组成，但是整体和部分不是强依赖的，整体不存在了部门还是存在。
+
+title Aggregation
+
+class Computer
+class Keyboard
+class Mouse
+class Screen
+
+Computer o-- Keyboard
+Computer o-- Mouse
+Computer o-- Screen
+
+@enduml

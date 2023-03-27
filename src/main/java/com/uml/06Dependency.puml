@@ -1,0 +1,27 @@
+@startuml
+'依赖关系 Dependency
+'和关联关系不同的是，依赖关系是运行过程中起作用的，可以简单的理解，就是一个类A使用到了另一个类B，
+'而这种使用关系是具有偶然性的、临时性的、非常弱的。
+'A类和B类是依赖关系主要有三种形式：
+'.A类是B类中的（其中方法的）局部变量；
+'.A类是B类方法当中的一个参数；
+'.A类向B类发送消息，从而影响B类发生变化；
+
+title Dependency
+
+class Vehicle {
+    move(MoveBehavior)
+}
+
+interface MoveBehavior {
+    move()
+}
+
+note "MoveBehavior.move()" as N
+
+Vehicle ..> MoveBehavior
+
+Vehicle .. N
+
+@enduml
+

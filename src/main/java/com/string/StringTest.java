@@ -222,4 +222,11 @@ public class StringTest {
         System.out.println(StringTest.map);
         System.out.println(map);
     }
+    @Test
+    public void test226(){
+        StringJoiner sj = new StringJoiner(",");
+        System.out.println(sj.length());
+        sj.add("12");
+        System.out.println(sj.length());
+    }
 }

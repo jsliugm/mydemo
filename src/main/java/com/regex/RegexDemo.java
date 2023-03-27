@@ -1,5 +1,7 @@
 package com.regex;
 
+import org.junit.Test;
+
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -24,5 +26,14 @@ public class RegexDemo {
 		System.out.println(b);
 		System.out.println(matcher.group());
 		
+	}
+
+	@Test
+	public void test(){
+		// "UW_KEY"\s*:\s*"(\w+)"
+		String xx = "aaaaaaaaaaaaa\"UW_KEY\":\"aaaaaa\"bbbbbbbbbbbbbb";
+		Pattern pattern = Pattern.compile("\"UW_KEY\"\\s*:\\s*\"(\\w+)");
+
+
 	}
 }

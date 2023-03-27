@@ -1,0 +1,14 @@
+@startuml
+'实现关系 Realization
+'用来实现一个接口，在Java中使用implement关键字。
+
+title Realization
+
+interface MoveBehavior
+class Fly
+class Run
+
+MoveBehavior <|.. Fly
+MoveBehavior <|.. Run
+
+@enduml
