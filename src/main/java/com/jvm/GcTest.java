@@ -11,8 +11,8 @@ public class GcTest {
                -Xmx200M
                -Xms200M
                -Xmn50M
+                -XX:TargetSurvivorRatio=60
                -XX:+PrintGCDetails
-               -XX:TargetSurvivorRatio=60
                -XX:+PrintTenuringDistribution
                -XX:+PrintGCDateStamps
                -XX:MaxTenuringThreshold=6

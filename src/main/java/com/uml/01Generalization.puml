@@ -1,0 +1,15 @@
+@startuml
+
+'泛化关系Generalization
+'用来描述继承关系，在Java中使用extends关键字
+
+title Generalization
+
+class Vehicle
+class Car
+class Truck
+
+Vehicle <|-- Car
+Vehicle <|-- Truck
+
+@enduml

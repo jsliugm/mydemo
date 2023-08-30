@@ -1,0 +1,15 @@
+@startuml
+'组合关系 Composition
+'和聚合不同，组合中整体和部分是强依赖的，整体不存在了部门也不存在了。比如公司和部门，公司没了部门就不存在了。但是公司和员工就属于聚合关系了，因为公司没了员工还在。
+
+title Composition
+
+class Company
+class DepartmentA
+class DepartmentB
+
+Company *-- DepartmentA
+Company *-- DepartmentB
+
+
+@enduml

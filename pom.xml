@@ -101,7 +101,7 @@
         <dependency>
             <groupId>com.jcraft</groupId>
             <artifactId>jsch</artifactId>
-            <version>0.1.51</version>
+            <version>0.1.53</version>
         </dependency>
         <dependency>
             <groupId>redis.clients</groupId>
@@ -158,7 +158,7 @@
         <dependency>
             <groupId>org.openjdk.jol</groupId>
             <artifactId>jol-core</artifactId>
-            <version>0.13</version>
+            <version>0.16</version>
         </dependency>
         <dependency>
             <groupId>org.codehaus.groovy</groupId>
@@ -207,6 +207,16 @@
             <groupId>com.alibaba</groupId>
             <artifactId>transmittable-thread-local</artifactId>
             <version>2.2.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.jfinal</groupId>
+            <artifactId>enjoy</artifactId>
+            <version>5.0.3</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-email</artifactId>
+            <version>1.5</version>
         </dependency>
     </dependencies>
     <!-- <repositories>
