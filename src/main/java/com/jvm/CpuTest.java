@@ -107,4 +107,5 @@ public class CpuTest {
             System.out.println("...");
         }
     }
+
 }

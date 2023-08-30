@@ -15,4 +15,16 @@ public class Main {
             s = (Student) p;
         }
     }
+
+    static {
+        System.out.println("static1");
+    }
+
+    static {
+        System.out.println("static2");
+    }
+
+    public static void main(String[] args) {
+        System.out.println("abc");
+    }
 }

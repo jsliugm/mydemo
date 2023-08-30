@@ -1,5 +1,7 @@
 package com.exception;
 
+import org.junit.Test;
+
 import java.io.PrintWriter;
 import java.io.StringWriter;
 
@@ -43,5 +45,23 @@ public class ExceptionDemo {
 		}
 		System.out.println(stringWriter.toString());
 
+	}
+	@Test
+	public void testNullP(){
+		Object o = new Object();
+
+
+		System.out.println(o.toString());
+
+		o = null;
+
+		try {
+			System.out.println(o.toString());
+		} catch (Exception e) {
+			//System.out.println(e.getMessage());
+			if(e.getMessage()==null) {
+				System.out.println("null ~~~~~");
+			}
+		}
 	}
 }
