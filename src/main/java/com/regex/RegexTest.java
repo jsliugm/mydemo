@@ -50,6 +50,17 @@ public class RegexTest {
     @Test
     public void test4() {
 
+
+        String regex = "^(?!.*hello).*";
+        String input = "helloaaaaa";
+
+        if (input.matches(regex)) {
+            System.out.println("String does not contain 'hello'");
+        } else {
+            System.out.println("String contains 'hello'");
+        }
+
+
     }
 
 }

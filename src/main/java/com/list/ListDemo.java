@@ -1,6 +1,7 @@
 package com.list;
 
 import com.google.common.collect.Lists;
+import com.google.common.collect.Sets;
 import org.junit.Test;
 
 import java.util.*;
@@ -59,5 +60,38 @@ public class ListDemo {
 
         System.out.println(people);
 
+    }
+
+    @Test
+    public void testStringTypeSort(){
+        List<String> list = Lists.newArrayList("2","1","6","5");
+        list.sort(new Comparator<String>() {
+            @Override
+            public int compare(String o1, String o2) {
+                return o2.compareTo(o1);
+            }
+        });
+        System.out.println(list);
+    }
+    @Test
+    public void testRemove(){
+        Set<String> set = Sets.newHashSet("1","2","3");
+        List<String> list = Lists.newArrayList("2");
+
+        if(set.removeAll(list)) {
+            System.out.println(set);
+        }
+
+
+        if(set.removeAll(list)) {
+            System.out.println(set);
+        }
+    }
+    @Test
+    public void testEmptyList(){
+        List<String> list = Collections.emptyList();
+        for (String s : list) {
+            System.out.println(s);
+        }
     }
 }

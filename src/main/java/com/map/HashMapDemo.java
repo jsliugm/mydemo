@@ -32,4 +32,13 @@ public class HashMapDemo {
         Map<String, String> ro = Collections.unmodifiableMap(map);
 
     }
+
+    @Test
+    public void testMap() {
+        Map<String, Object> map = new HashMap<>();
+        map.put("a", null);
+        if (map.containsKey("a")) {
+            System.out.println("xxxx");
+        }
+    }
 }
