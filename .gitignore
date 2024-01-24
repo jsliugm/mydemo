@@ -3,3 +3,8 @@ target/
 *.iml
 *.log
 rebel.xml
+.classpath
+.project
+.settings
+.vscode
+.factorypath
