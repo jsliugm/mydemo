@@ -13,8 +13,6 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
-        <nexus.url>http://maven.aliyun.com/nexus/content/groups/public/</nexus.url>
-        <nexus.thirdparty.url>http://192.168.193.24:8081/nexus/content/repositories/thirdparty/</nexus.thirdparty.url>
         <esales-core.version>0.0.8</esales-core.version>
         <org.mybatis.generator.version>1.3.2</org.mybatis.generator.version>
         <mysql.driver.version>5.1.30</mysql.driver.version>
@@ -27,6 +25,33 @@
         <org.aspectj.aspectjweaver.version>1.7.4</org.aspectj.aspectjweaver.version>
         <shiro.version>1.2.3</shiro.version>
     </properties>
+    <repositories>
+        <repository>
+            <id>nexus-aliyun</id>
+            <name>Nexus aliyun</name>
+            <url>https://maven.aliyun.com/repository/public</url>
+            <layout>default</layout>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+        </repository>
+    </repositories>
+    <pluginRepositories>
+        <pluginRepository>
+            <id>nexus-aliyun</id>
+            <name>Nexus aliyun</name>
+            <url>https://maven.aliyun.com/repository/public</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+        </pluginRepository>
+    </pluginRepositories>
     <dependencies>
         <dependency>
             <groupId>org.springframework</groupId>
@@ -224,6 +249,21 @@
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-email</artifactId>
             <version>1.5</version>
+        </dependency>
+        <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-all</artifactId>
+            <version>5.8.16</version>
+        </dependency>
+        <dependency>
+            <groupId>uk.org.lidalia</groupId>
+            <artifactId>sysout-over-slf4j</artifactId>
+            <version>1.0.2</version>
+        </dependency>
+        <dependency>
+            <groupId>org.benf</groupId>
+            <artifactId>cfr</artifactId>
+            <version>0.150</version>
         </dependency>
     </dependencies>
     <!-- <repositories>

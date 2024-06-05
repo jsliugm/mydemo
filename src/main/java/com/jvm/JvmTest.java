@@ -22,7 +22,7 @@ public class JvmTest {
         System.gc();
         System.out.println("After GC:Soft Get= " + softRef.get());
         System.out.println("分配大块内存");
-        byte[] b = new byte[16 * 1024 * 1024];
+        byte[] b = new byte[4 * 1024 * 925];
         System.out.println("After new byte[]:Soft Get= " + softRef.get());
     }
 
@@ -39,7 +39,7 @@ public class JvmTest {
         }
     }
 
-    private static class CheckRefQueue implements Runnable{
+    private static class CheckRefQueue implements Runnable {
         private ReferenceQueue<MyObject> softQueue;
 
         public CheckRefQueue(ReferenceQueue<MyObject> softQueue) {
@@ -48,7 +48,6 @@ public class JvmTest {
 
         @Override
         public void run() {
-            System.out.println("===="+Thread.currentThread().getName());
             Reference<MyObject> obj = null;
             try {
                 obj = (Reference<MyObject>) softQueue.remove();
