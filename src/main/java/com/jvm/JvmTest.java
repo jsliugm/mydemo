@@ -11,17 +11,14 @@ import java.lang.ref.WeakReference;
  * Created by c_liuguangming on 2017/7/21.
  */
 public class JvmTest {
-    @Test
-    public void test() {
-
-    }
-
     public static void main(String[] args) {
         MyObject obj = new MyObject();
         ReferenceQueue<MyObject> softQueue = new ReferenceQueue<MyObject>();
-        SoftReference<MyObject> softRef = new SoftReference<MyObject>(obj, softQueue);
+        //SoftReference<MyObject> softRef = new SoftReference<MyObject>(obj, softQueue);
+        WeakReference<MyObject> softRef = new WeakReference<>(obj, softQueue);
         new Thread(new CheckRefQueue(softQueue)).start();
         obj = null;
+        System.out.println("Before GC:Soft Get= " + softRef.get());
         System.gc();
         System.out.println("After GC:Soft Get= " + softRef.get());
         System.out.println("分配大块内存");

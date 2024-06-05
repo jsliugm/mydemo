@@ -17,7 +17,6 @@ public class RegexDemo {
 		System.out.println(matcher.start(1));
 		//System.out.println(matcher.);
 		System.out.println(matcher.group(1));*/
-		
 		String numStr = "www4";
 		String numFormat = "^[\\d\\w]{3}4$";
 		Pattern pattern = Pattern.compile(numFormat);
@@ -33,7 +32,14 @@ public class RegexDemo {
 		// "UW_KEY"\s*:\s*"(\w+)"
 		String xx = "aaaaaaaaaaaaa\"UW_KEY\":\"aaaaaa\"bbbbbbbbbbbbbb";
 		Pattern pattern = Pattern.compile("\"UW_KEY\"\\s*:\\s*\"(\\w+)");
+	}
 
 
+	@Test
+	public void testSpace(){
+		// "UW_KEY"\s*:\s*"(\w+)"
+		String xx = "a　 b";
+		Pattern pattern = Pattern.compile("[\\s\u3000]");
+		System.out.println(pattern.matcher(xx).replaceAll(""));
 	}
 }

@@ -32,4 +32,12 @@ public class HashMapDemo {
         Map<String, String> ro = Collections.unmodifiableMap(map);
 
     }
+    @Test
+    public void testNullValue(){
+        Map<String, Object> map = Maps.newHashMap();
+        map.put("1", null);
+        Object notExists = new Object();
+        System.out.println(map.getOrDefault("1", notExists) == notExists);
+        System.out.println(Integer.MAX_VALUE);
+    }
 }

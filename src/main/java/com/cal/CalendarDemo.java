@@ -10,5 +10,7 @@ public class CalendarDemo {
         Calendar cal = Calendar.getInstance();
         cal.add(Calendar.DAY_OF_MONTH,-30);
         System.out.println(cal.getTime());
+
+        System.out.println(cal.get(Calendar.HOUR_OF_DAY));
     }
 }
