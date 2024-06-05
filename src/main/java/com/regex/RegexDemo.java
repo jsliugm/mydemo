@@ -17,14 +17,13 @@ public class RegexDemo {
 		System.out.println(matcher.start(1));
 		//System.out.println(matcher.);
 		System.out.println(matcher.group(1));*/
-		
-		String numStr = "()中国";
-		String numFormat = "[\\[\\]\\u4e00-\\u9fa5_a-zA-Z][\\[\\]\\u4e00-\\u9fa5_a-zA-Z0-9]*";
+		String numStr = "www4";
+		String numFormat = "^[\\d\\w]{3}4$";
 		Pattern pattern = Pattern.compile(numFormat);
 		Matcher matcher = pattern.matcher(numStr);
-		boolean b = matcher.matches();
+		boolean b = matcher.find();
 		System.out.println(b);
-		//System.out.println(matcher.group());
+		System.out.println(matcher.group());
 		
 	}
 
@@ -33,7 +32,14 @@ public class RegexDemo {
 		// "UW_KEY"\s*:\s*"(\w+)"
 		String xx = "aaaaaaaaaaaaa\"UW_KEY\":\"aaaaaa\"bbbbbbbbbbbbbb";
 		Pattern pattern = Pattern.compile("\"UW_KEY\"\\s*:\\s*\"(\\w+)");
+	}
 
 
+	@Test
+	public void testSpace(){
+		// "UW_KEY"\s*:\s*"(\w+)"
+		String xx = "a　 b";
+		Pattern pattern = Pattern.compile("[\\s\u3000]");
+		System.out.println(pattern.matcher(xx).replaceAll(""));
 	}
 }

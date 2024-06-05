@@ -1,18 +1,12 @@
 package com.trie;
 
 import com.google.common.collect.Lists;
-import com.google.common.collect.Sets;
 import org.ahocorasick.trie.Emit;
 import org.ahocorasick.trie.Trie;
-import org.ahocorasick.trie.handler.EmitHandler;
-import org.junit.Before;
 import org.junit.Test;
-import org.springframework.util.StopWatch;
 
 import java.util.Collection;
 import java.util.List;
-import java.util.Set;
-import java.util.UUID;
 
 /**
  * 测试
@@ -31,12 +25,47 @@ public class TrieTest {
                 .addKeyword("he")
                 .build();
         Collection<Emit> emits = trie.parseText("ushers 1111");
-        System.out.println();
+
+    }
+
+
+    @Test
+    public void test3() {
+        Trie trie = Trie.builder()
+                .addKeyword("江苏省淮安市涟水县朱码镇")
+                .addKeyword("江苏省淮安市涟水县高沟镇")
+                .addKeyword("江苏省淮安市涟水县A镇")
+                .addKeyword("江苏省淮安市涟水县红窑镇")
+                .build();
+        Collection<Emit> emits = trie.parseText("江苏省淮安市涟水县红窑镇刘桥村");
+        System.out.println(emits);
     }
 
     @Test
-    public void test2(){
-        List<String> list = Lists.newArrayList("hello","hello", "world", "hello world");
+    public void test4() {
+        List<String> list = Lists.newArrayList();
+        list.add("江苏省淮安市涟水县朱码镇");
+        list.add("江苏省淮安市涟水县高沟镇");
+        list.add("江苏省淮安市涟水县A镇");
+        list.add("江苏省淮安市涟水县红窑镇");
+        Trie trie = Trie.builder()
+                .addKeywords(list)
+                .build();
+
+        String address = "江苏省淮安市涟水县红窑镇刘桥村";
+
+        Collection<Emit> emits = trie.parseText(address);
+        System.out.println(emits);
+
+        System.out.println(trie.firstMatch(address));
+
+        System.out.println(trie.containsMatch(address));
+
+    }
+
+    @Test
+    public void test2() {
+        List<String> list = Lists.newArrayList("hello", "hello", "world", "hello world");
 
     }
 }

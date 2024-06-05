@@ -10,32 +10,52 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public class JavaDemo implements Serializable {
-	private List aa;
-	private Map aaa;
-	public static void main(String[] args) {
-		int i = 0;
-		// System.out.println("aaaa");
-		top1: while (i < 4) {
-			System.out.println(i);
-			i++;
-			continue top1;
-		}
-		i=0;
-		System.out.println(i++);
-		System.out.println(++i);
-	}
+    private List aa;
+    private Map aaa;
 
-	@Test
-	public void test(){
-		StringBuffer a,b,c = new StringBuffer();
+    public static void main(String[] args) {
+        int i = 0;
+        // System.out.println("aaaa");
+        top1:
+        while (i < 4) {
+            System.out.println(i);
+            i++;
+            continue top1;
+        }
+        i = 0;
+        System.out.println(i++);
+        System.out.println(++i);
+    }
 
-		List<Integer> list = IntStream.range(0,2).boxed().collect(Collectors.toList());
+    @Test
+    public void test() {
+        StringBuffer a, b, c = new StringBuffer();
 
-		System.out.println(list);
-	}
-	@Test
-	public void test37(){
-		Integer i = Integer.MAX_VALUE;
-		System.out.println(i);
-	}
+        List<Integer> list = IntStream.range(0, 2).boxed().collect(Collectors.toList());
+
+        System.out.println(list);
+    }
+
+    @Test
+    public void test37() {
+        Integer i = Integer.MAX_VALUE;
+        System.out.println(i);
+    }
+
+    @Test
+    public void testPP() {
+        int i = 0;
+        System.out.println(++i);
+        System.out.println(i);
+    }
+
+    @Test
+    public void testMaxInteger(){
+        Integer i = Integer.MAX_VALUE;
+        System.out.println(i);
+        if(++i > Integer.MAX_VALUE) {
+            System.out.println("========");
+        }
+        System.out.println(i);
+    }
 }

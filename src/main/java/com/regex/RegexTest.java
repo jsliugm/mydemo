@@ -49,18 +49,12 @@ public class RegexTest {
 
     @Test
     public void test4() {
-
-
-        String regex = "^(?!.*hello).*";
-        String input = "helloaaaaa";
-
-        if (input.matches(regex)) {
-            System.out.println("String does not contain 'hello'");
-        } else {
-            System.out.println("String contains 'hello'");
+        String txt = "Rule123.class.Rule345.xx";
+        Pattern p = Pattern.compile("Rule\\w+");
+        Matcher matcher = p.matcher(txt);
+        if(matcher.find()) {
+            System.out.println(matcher.group(0));
         }
-
-
     }
 
 }

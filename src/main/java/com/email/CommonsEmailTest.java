@@ -36,9 +36,9 @@ public class CommonsEmailTest {
        // 设置字符编码方式
        email.setCharset("UTF-8");
        // 发件人
-       email.setFrom("liuguangming@taijihuabao.com");
+       email.setFrom("liuguangming@taijihuabao.com","中国人发的","utf-8");
        // 收件人
-       email.addTo("jsliugm@163.com");
+       email.addTo("89628735@qq.com");
 //     email.addTo(String... emails);//发送给多人
 //     // 抄送
 //     email.addCc("xxx");

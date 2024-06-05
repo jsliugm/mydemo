@@ -8,7 +8,6 @@ import org.junit.Test;
 
 import java.io.UnsupportedEncodingException;
 import java.math.BigDecimal;
-import java.text.MessageFormat;
 import java.util.List;
 import java.util.Map;
 import java.util.StringJoiner;
@@ -168,8 +167,9 @@ public class StringTest {
         println(aa);
         System.out.println(aa.hashCode());
     }
+
     @Test
-    public void testJoin(){
+    public void testJoin() {
         StringJoiner sj = new StringJoiner(" && ");
         sj.add("xxx");
         System.out.println(sj.length());
@@ -179,54 +179,72 @@ public class StringTest {
     private void println(String aa) {
         System.out.println(aa.hashCode());
     }
+
     @Test
-    public void test17(){
-        System.out.printf("[%d]\n",123);
-        System.out.printf("[%4d]\n",123);
-        System.out.printf("[%-4d]\n",123);
-        System.out.printf("[%04d]\n",123);
-        System.out.printf("[%d]\n",123);
+    public void test17() {
+        System.out.printf("[%d]\n", 123);
+        System.out.printf("[%4d]\n", 123);
+        System.out.printf("[%-4d]\n", 123);
+        System.out.printf("[%04d]\n", 123);
+        System.out.printf("[%d]\n", 123);
     }
+
     @Test
-    public void test18(){
+    public void test18() {
         String jj = "";
-        if(jj instanceof String) {
+        if (jj instanceof String) {
             System.out.println("yyyyyyyyes");
         }
     }
+
     @Test
-    public void test19(){
-        String pattern = "{return '%s' }()" ;
-        String nullPattern = "{return null }()" ;
+    public void test19() {
+        String pattern = "{return '%s' }()";
+        String nullPattern = "{return null }()";
         System.out.println(nullPattern);
-        System.out.println(String.format(pattern,"1"));
+        System.out.println(String.format(pattern, "1"));
     }
+
     @Test
-    public void test202(){
+    public void test202() {
         Pattern pattern = Pattern.compile("^.*\\[交\\b.*$");
         String target = "[交]信息";
         System.out.println(pattern.matcher(target).matches());
     }
-    static Map<String,String> map = Maps.newHashMap();
+
+    static Map<String, String> map = Maps.newHashMap();
+
     @Test
-    public void test210(){
-        map.put("1","1");
-        Map<String,String> map = Maps.newHashMap();
-        List<String> list = Lists.newArrayList("1","2");
+    public void test210() {
+        map.put("1", "1");
+        Map<String, String> map = Maps.newHashMap();
+        List<String> list = Lists.newArrayList("1", "2");
         list.forEach(
-                it->{
-                    map.put(it,it);
+                it -> {
+                    map.put(it, it);
                 }
         );
 
         System.out.println(StringTest.map);
         System.out.println(map);
     }
+
     @Test
-    public void test226(){
+    public void test226() {
         StringJoiner sj = new StringJoiner(",");
         System.out.println(sj.length());
         sj.add("12");
         System.out.println(sj.length());
+    }
+
+    private final static String cc = "abc1";
+    @Test
+    public void testEquals() {
+        String a = "abc" + 1;
+        System.out.println(a == "abc" + 1);
+        for (int i = 0; i < 1; i++) {
+            String b = "abc" + i;
+            System.out.println(b == "abc" + i);
+        }
     }
 }

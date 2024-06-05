@@ -5,9 +5,10 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class GcTest {
     //java -XX:+PrintCommandLineFlags -version
-//-XX:+PrintFlagsFinal 打印所有参数
+    //-XX:+PrintFlagsFinal 打印所有参数
     /* vm参数：
                -verbose:gc
+               -verbose:class
                -Xmx200M
                -Xms200M
                -Xmn50M
@@ -29,17 +30,17 @@ public class GcTest {
         printUsedMemory();
         // byte[] a3 = new byte[41 * 1024 * 1024];
         //  byte[] a1 = new byte[1 * 1024 * 1024];
-//        byte[] a1 = new byte[1 * 1024 * 1024];
-//        byte[] a2 = new byte[1 * 1024 * 1024];
-//        byte[] a3 = new byte[2 * 1024 * 1024];
-//
-//        makeGarbage(32);
-//        //
-//        byte[] a4 = new byte[1 * 1024 * 1024];
-//
-//        //占满eden
-//        makeGarbage(38);
-//        byte[] a5 = new byte[1 * 1024 * 1024];
+        //        byte[] a1 = new byte[1 * 1024 * 1024];
+        //        byte[] a2 = new byte[1 * 1024 * 1024];
+        //        byte[] a3 = new byte[2 * 1024 * 1024];
+        //
+        //        makeGarbage(32);
+        //        //
+        //        byte[] a4 = new byte[1 * 1024 * 1024];
+        //
+        //        //占满eden
+        //        makeGarbage(38);
+        //        byte[] a5 = new byte[1 * 1024 * 1024];
     }
 
     public static void makeGarbage(int size) {

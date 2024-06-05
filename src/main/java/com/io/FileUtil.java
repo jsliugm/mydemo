@@ -87,5 +87,6 @@ public class FileUtil {
     public void test() {
         File f = new File("c:\\tezts\\xx.txt");
         System.out.println(f.getParentFile().exists());
+        System.out.println(f.getParent());
     }
 }
