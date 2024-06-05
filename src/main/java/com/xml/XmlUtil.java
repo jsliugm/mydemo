@@ -1,5 +1,6 @@
 package com.xml;
 
+import cn.hutool.core.io.resource.ClassPathResource;
 import org.dom4j.DocumentException;
 import org.dom4j.io.SAXReader;
 import org.junit.Test;
@@ -56,10 +57,11 @@ public class XmlUtil {
 
     @Test
     public void testSax() throws ParserConfigurationException, SAXException, IOException {
-        File file = new File("C:\\Users\\jsliu\\Desktop\\test.xml");
+
+        //File file = new File("resources/test.xml");
         SAXParserFactory spf = SAXParserFactory.newInstance();
         SAXParser parser = spf.newSAXParser();
-        parser.parse(file, new MySaxHandler());
+        parser.parse(new ClassPathResource("test.xml").getStream(), new MySaxHandler());
     }
 
     @Test
@@ -70,8 +72,6 @@ public class XmlUtil {
         org.dom4j.Document document = reader.read(new File("C:\\Users\\jsliu\\Desktop\\test.xml"));
         // 获取根元素
         org.dom4j.Element root = document.getRootElement();
-
-
     }
 }
 

@@ -258,6 +258,11 @@
             <artifactId>cfr</artifactId>
             <version>0.150</version>
         </dependency>
+        <dependency>
+            <groupId>org.camunda.bpm</groupId>
+            <artifactId>camunda-external-task-client</artifactId>
+            <version>7.15.0</version>
+        </dependency>
     </dependencies>
     <!-- <repositories>
          <repository>

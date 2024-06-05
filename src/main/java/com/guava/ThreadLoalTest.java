@@ -12,4 +12,13 @@ public class ThreadLoalTest {
     private static ListeningExecutorService pool = MoreExecutors.listeningDecorator(taskExe);
     private static InheritableThreadLocal<Integer> inheritableThreadLocal = new InheritableThreadLocal<>();
 
+    public static void main(String[] args) {
+        namedThreadFactory.newThread(new Runnable() {
+            @Override
+            public void run() {
+                System.out.println("hello");
+            }
+        });
+    }
+
 }

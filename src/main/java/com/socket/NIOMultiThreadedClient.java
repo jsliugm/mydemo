@@ -8,9 +8,10 @@ import java.nio.channels.SocketChannel;
 public class NIOMultiThreadedClient {
 
     public static void main(String[] args) {
-        String serverAddress = "localhost";
+       // String serverAddress = "localhost";
+        String serverAddress = "192.168.126.131";
         int portNumber = 8888;
-        int numberOfThreads = 1;
+        int numberOfThreads = 10000;
 
         for (int i = 0; i < numberOfThreads; i++) {
             Thread clientThread = new Thread(new ClientTask(serverAddress, portNumber));
@@ -33,7 +34,7 @@ public class NIOMultiThreadedClient {
                 socketChannel.connect(new InetSocketAddress(serverAddress, portNumber));
 
                 // 发送消息给服务器
-                String message = "Hello, Server! - Thread: " + Thread.currentThread().getId();
+                String message = "Hello, Server! - Thread: " + Thread.currentThread().getId()+"\r\n";
                 ByteBuffer buffer = ByteBuffer.wrap(message.getBytes());
                 socketChannel.write(buffer);
 
