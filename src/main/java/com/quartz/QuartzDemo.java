@@ -5,6 +5,8 @@ import org.junit.Test;
 import org.quartz.*;
 import org.quartz.impl.StdSchedulerFactory;
 
+import java.util.Date;
+
 /**
  * Created by jsliu on 2019/11/13.
  */
@@ -13,6 +15,7 @@ public class QuartzDemo {
     public static void main(String[] args) throws Exception {
         cronTest();
     }
+
     /**
      * cronSchedule 测试
      */
@@ -22,16 +25,26 @@ public class QuartzDemo {
         Scheduler scheduler = schedulerFactory.getScheduler();
         // 2、创建JobDetail实例，并与PrintWordsJob类绑定(Job执行内容)
         JobDetail jobDetail = JobBuilder.newJob(PrintWordsJob.class)
-                .withIdentity("cronJob", "group").build();
-        CronTrigger trigger = TriggerBuilder.newTrigger().withIdentity("cronTrigger", "cronTriggerGroup")
-                .usingJobData("cronTrigger", "这是jobDetail1的trigger")
+                .withIdentity("cronJob", "group1").build();
+        CronTrigger trigger = TriggerBuilder.newTrigger().withIdentity("cronTrigger", "group1")
+                // .usingJobData("cronTrigger", "这是jobDetail1的trigger")
                 .startNow()//立即生效
-      /*          .startAt(new Date())
-                .endAt(endDate)*/
-                .withSchedule(CronScheduleBuilder.cronSchedule("0 0/5 * * * ?"))
+                .startAt(new Date())
+                //.endAt(endDate)
+                .withSchedule(CronScheduleBuilder.cronSchedule("0 0 0 * * ?"))
                 .build();
         scheduler.scheduleJob(jobDetail, trigger);
         scheduler.start();
+
+        Thread.sleep(5000L);
+        System.out.println("first sleep 5s");
+        scheduler.unscheduleJob(trigger.getKey());
+        scheduler.deleteJob(jobDetail.getKey());
+
+        Thread.sleep(5000L);
+        System.out.println("second sleep 5s");
+        scheduler.scheduleJob(jobDetail, trigger);
+
     }
 
     public static void test() throws SchedulerException, InterruptedException {
@@ -51,7 +64,7 @@ public class QuartzDemo {
 
         //4、执行
         scheduler.scheduleJob(jobDetail1, trigger);
-       // scheduler.unscheduleJob(trigger);
+        // scheduler.unscheduleJob(trigger);
         System.out.println("--------scheduler start ! ------------");
         scheduler.start();
 
