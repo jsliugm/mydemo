@@ -38,11 +38,6 @@ public class Base64ToBinary {
     }
 
     public static void main(String[] args) {
-//
-//        // 定义输入文件路径
-//        String inputFile = "restored_binary_file.jpg";
-//        // 定义输出文件路径
-//        String outputFile = "output_base64.txt";
         try {
             base64ToBinary("output_base64.txt", "restored_binary_file22.jpg");
             System.out.println("Base64 编码的文本文件已成功转换为二进制文件！");
