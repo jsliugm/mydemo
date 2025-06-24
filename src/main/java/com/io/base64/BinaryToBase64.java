@@ -36,11 +36,6 @@ public class BinaryToBase64 {
     }
 
     public static void main(String[] args) {
-        //
-//        // 定义输入文件路径
-//        String inputFile = "restored_binary_file.jpg";
-//        // 定义输出文件路径
-//        String outputFile = "output_base64.txt";
         try {
             binaryToBase64("E:\\softdev\\camunda\\camunda-modeler-5.22.0-win-x64.zip", "output_base64.txt");
             System.out.println("二进制文件已成功转换为 Base64 编码的文本文件！");
